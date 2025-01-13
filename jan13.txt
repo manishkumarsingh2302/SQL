@@ -1,0 +1,88 @@
+
+mysql> Create database jain13;
+Query OK, 1 row affected (0.02 sec)
+
+mysql> show database;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'database' at line 1
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| jain13             |
+| mysql              |
+| performance_schema |
+| sakila             |
+| sys                |
+| world              |
++--------------------+
+7 rows in set (0.01 sec)
+
+mysql> drop databases jain13;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'databases jain13' at line 1
+mysql> drop database jain13;
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> Create database jan13;
+Query OK, 1 row affected (0.02 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| jan13              |
+| mysql              |
+| performance_schema |
+| sakila             |
+| sys                |
+| world              |
++--------------------+
+7 rows in set (0.00 sec)
+
+mysql> use jan13;
+Database changed
+mysql> creat table student(
+    -> sid int primary key,
+    -> name varchar(45),
+    -> enroll varchar(45),
+    -> perfloat
+    -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'creat table student(
+sid int primary key,
+name varchar(45),
+enroll varchar(45),
+' at line 1
+mysql> creat table student(
+    -> sid int primary key,
+    -> name varchar(45),
+    -> enroll varchar(45),
+    -> perfloat
+    -> enroll varchar(45),
+    ->
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'creat table student(
+sid int primary key,
+name varchar(45),
+enroll varchar(45),
+' at line 1
+mysql> create table student(
+    -> sid int primary key,
+    -> name varchar(45),
+    -> enroll varchar(45),
+    -> per float
+    -> );
+Query OK, 0 rows affected (0.10 sec)
+
+mysql> desc student;
++--------+-------------+------+-----+---------+-------+
+| Field  | Type        | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| sid    | int         | NO   | PRI | NULL    |       |
+| name   | varchar(45) | YES  |     | NULL    |       |
+| enroll | varchar(45) | YES  |     | NULL    |       |
+| per    | float       | YES  |     | NULL    |       |
++--------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql>
