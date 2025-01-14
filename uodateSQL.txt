@@ -1,0 +1,31 @@
+//how to update data in mySQL?
+ 
+mysql> update student set name='sachin', enroll='54544' where sid=103;
+Query OK, 0 rows affected (0.01 sec)
+Rows matched: 0  Changed: 0  Warnings: 0
+
+mysql> select * from student;
++-----+--------+--------+-------+------+------+------+-------+
+| sid | name   | enroll | per   | p    | m    | h    | total |
++-----+--------+--------+-------+------+------+------+-------+
+| 101 | manish | 14545  | 67.55 |   78 |   45 |   48 |   789 |
+| 105 | satya  | 54654  |  NULL | NULL | NULL | NULL |  NULL |
++-----+--------+--------+-------+------+------+------+-------+
+2 rows in set (0.00 sec)
+
+mysql> update student set name='sachin', enroll='54544' where sid=105;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from student;
++-----+--------+--------+-------+------+------+------+-------+
+| sid | name   | enroll | per   | p    | m    | h    | total |
++-----+--------+--------+-------+------+------+------+-------+
+| 101 | manish | 14545  | 67.55 |   78 |   45 |   48 |   789 |
+| 105 | sachin | 54544  |  NULL | NULL | NULL | NULL |  NULL |
++-----+--------+--------+-------+------+------+------+-------+
+2 rows in set (0.00 sec)
+
+mysql>
+
+
