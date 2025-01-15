@@ -1,0 +1,39 @@
+write a sql query to create emp table in mysql?
+	
+
+create table empoliy1(
+empno int primary key,
+name varchar(45),
+sal float,
+job varchar(45),
+gender char(2),
+comm int,
+dept int
+);==================================================================
+mysql> use jan13;
+Database changed
+mysql> insert into empoliy1 values(01,'manish',12000,'peon','m',1000,10,'2024-01-12');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> desc empoliy1;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| empno    | int         | NO   | PRI | NULL    |       |
+| name     | varchar(45) | YES  |     | NULL    |       |
+| sal      | float       | YES  |     | NULL    |       |
+| job      | varchar(45) | YES  |     | NULL    |       |
+| gender   | char(2)     | YES  |     | NULL    |       |
+| comm     | int         | YES  |     | NULL    |       |
+| dept     | int         | YES  |     | NULL    |       |
+| hiredate | date        | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+8 rows in set (0.00 sec)
+
+mysql> select * from empoliy1;
++-------+--------+-------+------+--------+------+------+------------+
+| empno | name   | sal   | job  | gender | comm | dept | hiredate   |
++-------+--------+-------+------+--------+------+------+------------+
+|     1 | manish | 12000 | peon | m      | 1000 |   10 | 2024-01-12 |
++-------+--------+-------+------+--------+------+------+------------+
+1 row in set (0.00 sec)
