@@ -1,0 +1,305 @@
+    
+write a sql query data of all emp whose dipartement number is ten?
+write a sql query whose salery greter than 15000 ?
+write a sql query to print anual salry of empoliy?
+
+insert into empoliy1 values(01,'manish',12000,'peon','m',1000,10,'2024-01-12');
+
+Enter password: **********
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 14
+Server version: 8.0.40 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2024, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use jan13;
+Database changed
+mysql> select * from empoliy1;
++-------+--------+-------+------+--------+------+------+------------+
+| empno | name   | sal   | job  | gender | comm | dept | hiredate   |
++-------+--------+-------+------+--------+------+------+------------+
+|     1 | manish | 12000 | peon | m      | 1000 |   10 | 2024-01-12 |
++-------+--------+-------+------+--------+------+------+------------+
+1 row in set (0.04 sec)
+
+mysql> select name,sal,jab from empoliy1;
+ERROR 1054 (42S22): Unknown column 'jab' in 'field list'
+mysql> select name,sal,job from empoliy1;
++--------+-------+------+
+| name   | sal   | job  |
++--------+-------+------+
+| manish | 12000 | peon |
++--------+-------+------+
+1 row in set (0.00 sec)
+
+mysql> select * from empoliy1 where dept=10;
++-------+--------+-------+------+--------+------+------+------------+
+| empno | name   | sal   | job  | gender | comm | dept | hiredate   |
++-------+--------+-------+------+--------+------+------+------------+
+|     1 | manish | 12000 | peon | m      | 1000 |   10 | 2024-01-12 |
++-------+--------+-------+------+--------+------+------+------------+
+1 row in set (0.00 sec)
+
+mysql> insert into empoliy1 values(01,'sachin',18000,'peon','m',1000,10,'2024-01-12');
+ERROR 1062 (23000): Duplicate entry '1' for key 'empoliy1.PRIMARY'
+mysql> insert into empoliy1 values(02,'sachin',18000,'peon','m',1000,10,'2024-01-12');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into empoliy1 values(03,'satyam',19000,'peon','m',1000,10,'2024-01-12');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into empoliy1 values(04,'aman'19000,'peon','m',1000,10,'2024-01-12');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '19000,'peon','m',1000,10,'2024-01-12')' at line 1
+mysql> insert into empoliy1 values(04,'aman'19000,'cleark','m',1000,15,'2024-01-12');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '19000,'cleark','m',1000,15,'2024-01-12')' at line 1
+mysql> insert into empoliy1 values(04,'aman',19000,'cleark','m',1000,15,'2024-01-12');
+Query OK, 1 row affected (0.07 sec)
+
+mysql> select * from empoliy1;
++-------+--------+-------+--------+--------+------+------+------------+
+| empno | name   | sal   | job    | gender | comm | dept | hiredate   |
++-------+--------+-------+--------+--------+------+------+------------+
+|     1 | manish | 12000 | peon   | m      | 1000 |   10 | 2024-01-12 |
+|     2 | sachin | 18000 | peon   | m      | 1000 |   10 | 2024-01-12 |
+|     3 | satyam | 19000 | peon   | m      | 1000 |   10 | 2024-01-12 |
+|     4 | aman   | 19000 | cleark | m      | 1000 |   15 | 2024-01-12 |
++-------+--------+-------+--------+--------+------+------+------------+
+4 rows in set (0.00 sec)
+
+mysql> select *from empoliy1 where jab=cleark;
+ERROR 1054 (42S22): Unknown column 'jab' in 'where clause'
+mysql> select *from empoliy1 where job=cleark;
+ERROR 1054 (42S22): Unknown column 'cleark' in 'where clause'
+mysql> select *from empoliy1 where job='cleark';
++-------+------+-------+--------+--------+------+------+------------+
+| empno | name | sal   | job    | gender | comm | dept | hiredate   |
++-------+------+-------+--------+--------+------+------+------------+
+|     4 | aman | 19000 | cleark | m      | 1000 |   15 | 2024-01-12 |
++-------+------+-------+--------+--------+------+------+------------+
+1 row in set (0.00 sec)
+
+mysql> select sal,sal *12 from empoliy1;
++-------+---------+
+| sal   | sal *12 |
++-------+---------+
+| 12000 |  144000 |
+| 18000 |  216000 |
+| 19000 |  228000 |
+| 19000 |  228000 |
++-------+---------+
+4 rows in set (0.01 sec)
+
+mysql> select sal as Monthel_sal,sal*12 as anual sal;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'sal' at line 1
+mysql> select sal as Montheli_sal,sal*12 as anual_sal;
+ERROR 1054 (42S22): Unknown column 'sal' in 'field list'
+mysql> select sal as Montheli_sal,sal*12 as anual_sal from empoliy1;
++--------------+-----------+
+| Montheli_sal | anual_sal |
++--------------+-----------+
+|        12000 |    144000 |
+|        18000 |    216000 |
+|        19000 |    228000 |
+|        19000 |    228000 |
++--------------+-----------+
+4 rows in set (0.00 sec)
+
+mysql> insert into empoliy1 values(05,'manishi',12000,'gatepaser','f',1000,10,'2024-01-12');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into empoliy1 values(06,'neha',18000,'trainer','f',1000,10,'2024-01-12');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select from *empoliy1;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'from *empoliy1' at line 1
+mysql> select * from empoliy1;
++-------+---------+-------+-----------+--------+------+------+------------+
+| empno | name    | sal   | job       | gender | comm | dept | hiredate   |
++-------+---------+-------+-----------+--------+------+------+------------+
+|     1 | manish  | 12000 | peon      | m      | 1000 |   10 | 2024-01-12 |
+|     2 | sachin  | 18000 | peon      | m      | 1000 |   10 | 2024-01-12 |
+|     3 | satyam  | 19000 | peon      | m      | 1000 |   10 | 2024-01-12 |
+|     4 | aman    | 19000 | cleark    | m      | 1000 |   15 | 2024-01-12 |
+|     5 | manishi | 12000 | gatepaser | f      | 1000 |   10 | 2024-01-12 |
+|     6 | neha    | 18000 | trainer   | f      | 1000 |   10 | 2024-01-12 |
++-------+---------+-------+-----------+--------+------+------+------------+
+6 rows in set (0.00 sec)
+
+mysql> select sum(sal)  from empoliy1;
++----------+
+| sum(sal) |
++----------+
+|    98000 |
++----------+
+1 row in set (0.01 sec)
+
+mysql> select sum(sal)from empoliy1 where dept=10;
++----------+
+| sum(sal) |
++----------+
+|    79000 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> select sum(sal)from empoliy1 where dept=15;
++----------+
+| sum(sal) |
++----------+
+|    19000 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> show table;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+mysql> insert into empoliy1 values(06,'manish kumar',15500,'manager','m',1000,20,'2024-03-12');
+ERROR 1062 (23000): Duplicate entry '6' for key 'empoliy1.PRIMARY'
+mysql> insert into empoliy1 values(07,'manish kumar',15500,'manager','m',1000,20,'2024-03-12');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select count (*)from empoliy1;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '*)from empoliy1' at line 1
+mysql> select count (sal)from empoliy1;
+ERROR 1630 (42000): FUNCTION jan13.count does not exist. Check the 'Function Name Parsing and Resolution' section in the Reference Manual
+mysql> select count(sal)from empoliy1;
++------------+
+| count(sal) |
++------------+
+|          7 |
++------------+
+1 row in set (0.00 sec)
+
+mysql> select * from empoliy1 order by sal;
++-------+--------------+-------+-----------+--------+------+------+------------+
+| empno | name         | sal   | job       | gender | comm | dept | hiredate   |
++-------+--------------+-------+-----------+--------+------+------+------------+
+|     1 | manish       | 12000 | peon      | m      | 1000 |   10 | 2024-01-12 |
+|     5 | manishi      | 12000 | gatepaser | f      | 1000 |   10 | 2024-01-12 |
+|     7 | manish kumar | 15500 | manager   | m      | 1000 |   20 | 2024-03-12 |
+|     2 | sachin       | 18000 | peon      | m      | 1000 |   10 | 2024-01-12 |
+|     6 | neha         | 18000 | trainer   | f      | 1000 |   10 | 2024-01-12 |
+|     3 | satyam       | 19000 | peon      | m      | 1000 |   10 | 2024-01-12 |
+|     4 | aman         | 19000 | cleark    | m      | 1000 |   15 | 2024-01-12 |
++-------+--------------+-------+-----------+--------+------+------+------------+
+7 rows in set (0.00 sec)
+
+mysql> select * from empoliy1 order by sal desc;
++-------+--------------+-------+-----------+--------+------+------+------------+
+| empno | name         | sal   | job       | gender | comm | dept | hiredate   |
++-------+--------------+-------+-----------+--------+------+------+------------+
+|     3 | satyam       | 19000 | peon      | m      | 1000 |   10 | 2024-01-12 |
+|     4 | aman         | 19000 | cleark    | m      | 1000 |   15 | 2024-01-12 |
+|     2 | sachin       | 18000 | peon      | m      | 1000 |   10 | 2024-01-12 |
+|     6 | neha         | 18000 | trainer   | f      | 1000 |   10 | 2024-01-12 |
+|     7 | manish kumar | 15500 | manager   | m      | 1000 |   20 | 2024-03-12 |
+|     1 | manish       | 12000 | peon      | m      | 1000 |   10 | 2024-01-12 |
+|     5 | manishi      | 12000 | gatepaser | f      | 1000 |   10 | 2024-01-12 |
++-------+--------------+-------+-----------+--------+------+------+------------+
+7 rows in set (0.00 sec)
+
+mysql> select * from empoliy1 order by dept desc;
++-------+--------------+-------+-----------+--------+------+------+------------+
+| empno | name         | sal   | job       | gender | comm | dept | hiredate   |
++-------+--------------+-------+-----------+--------+------+------+------------+
+|     7 | manish kumar | 15500 | manager   | m      | 1000 |   20 | 2024-03-12 |
+|     4 | aman         | 19000 | cleark    | m      | 1000 |   15 | 2024-01-12 |
+|     1 | manish       | 12000 | peon      | m      | 1000 |   10 | 2024-01-12 |
+|     2 | sachin       | 18000 | peon      | m      | 1000 |   10 | 2024-01-12 |
+|     3 | satyam       | 19000 | peon      | m      | 1000 |   10 | 2024-01-12 |
+|     5 | manishi      | 12000 | gatepaser | f      | 1000 |   10 | 2024-01-12 |
+|     6 | neha         | 18000 | trainer   | f      | 1000 |   10 | 2024-01-12 |
++-------+--------------+-------+-----------+--------+------+------+------------+
+7 rows in set (0.00 sec)
+
+mysql> select * from empoliy1 order by name;
++-------+--------------+-------+-----------+--------+------+------+------------+
+| empno | name         | sal   | job       | gender | comm | dept | hiredate   |
++-------+--------------+-------+-----------+--------+------+------+------------+
+|     4 | aman         | 19000 | cleark    | m      | 1000 |   15 | 2024-01-12 |
+|     1 | manish       | 12000 | peon      | m      | 1000 |   10 | 2024-01-12 |
+|     7 | manish kumar | 15500 | manager   | m      | 1000 |   20 | 2024-03-12 |
+|     5 | manishi      | 12000 | gatepaser | f      | 1000 |   10 | 2024-01-12 |
+|     6 | neha         | 18000 | trainer   | f      | 1000 |   10 | 2024-01-12 |
+|     2 | sachin       | 18000 | peon      | m      | 1000 |   10 | 2024-01-12 |
+|     3 | satyam       | 19000 | peon      | m      | 1000 |   10 | 2024-01-12 |
++-------+--------------+-------+-----------+--------+------+------+------------+
+7 rows in set (0.00 sec)
+
+mysql> select * from empoliy1 order by name desc;
++-------+--------------+-------+-----------+--------+------+------+------------+
+| empno | name         | sal   | job       | gender | comm | dept | hiredate   |
++-------+--------------+-------+-----------+--------+------+------+------------+
+|     3 | satyam       | 19000 | peon      | m      | 1000 |   10 | 2024-01-12 |
+|     2 | sachin       | 18000 | peon      | m      | 1000 |   10 | 2024-01-12 |
+|     6 | neha         | 18000 | trainer   | f      | 1000 |   10 | 2024-01-12 |
+|     5 | manishi      | 12000 | gatepaser | f      | 1000 |   10 | 2024-01-12 |
+|     7 | manish kumar | 15500 | manager   | m      | 1000 |   20 | 2024-03-12 |
+|     1 | manish       | 12000 | peon      | m      | 1000 |   10 | 2024-01-12 |
+|     4 | aman         | 19000 | cleark    | m      | 1000 |   15 | 2024-01-12 |
++-------+--------------+-------+-----------+--------+------+------+------------+
+7 rows in set (0.00 sec)
+
+mysql> select * from empoliy1 order by hiredate desc;
++-------+--------------+-------+-----------+--------+------+------+------------+
+| empno | name         | sal   | job       | gender | comm | dept | hiredate   |
++-------+--------------+-------+-----------+--------+------+------+------------+
+|     7 | manish kumar | 15500 | manager   | m      | 1000 |   20 | 2024-03-12 |
+|     1 | manish       | 12000 | peon      | m      | 1000 |   10 | 2024-01-12 |
+|     2 | sachin       | 18000 | peon      | m      | 1000 |   10 | 2024-01-12 |
+|     3 | satyam       | 19000 | peon      | m      | 1000 |   10 | 2024-01-12 |
+|     4 | aman         | 19000 | cleark    | m      | 1000 |   15 | 2024-01-12 |
+|     5 | manishi      | 12000 | gatepaser | f      | 1000 |   10 | 2024-01-12 |
+|     6 | neha         | 18000 | trainer   | f      | 1000 |   10 | 2024-01-12 |
++-------+--------------+-------+-----------+--------+------+------+------------+
+7 rows in set (0.00 sec)
+
+mysql> select * from empoliy1 order by hiredate;
++-------+--------------+-------+-----------+--------+------+------+------------+
+| empno | name         | sal   | job       | gender | comm | dept | hiredate   |
++-------+--------------+-------+-----------+--------+------+------+------------+
+|     1 | manish       | 12000 | peon      | m      | 1000 |   10 | 2024-01-12 |
+|     2 | sachin       | 18000 | peon      | m      | 1000 |   10 | 2024-01-12 |
+|     3 | satyam       | 19000 | peon      | m      | 1000 |   10 | 2024-01-12 |
+|     4 | aman         | 19000 | cleark    | m      | 1000 |   15 | 2024-01-12 |
+|     5 | manishi      | 12000 | gatepaser | f      | 1000 |   10 | 2024-01-12 |
+|     6 | neha         | 18000 | trainer   | f      | 1000 |   10 | 2024-01-12 |
+|     7 | manish kumar | 15500 | manager   | m      | 1000 |   20 | 2024-03-12 |
++-------+--------------+-------+-----------+--------+------+------+------------+
+7 rows in set (0.00 sec)
+
+mysql> select * from empoliy1 order by empno desc;
++-------+--------------+-------+-----------+--------+------+------+------------+
+| empno | name         | sal   | job       | gender | comm | dept | hiredate   |
++-------+--------------+-------+-----------+--------+------+------+------------+
+|     7 | manish kumar | 15500 | manager   | m      | 1000 |   20 | 2024-03-12 |
+|     6 | neha         | 18000 | trainer   | f      | 1000 |   10 | 2024-01-12 |
+|     5 | manishi      | 12000 | gatepaser | f      | 1000 |   10 | 2024-01-12 |
+|     4 | aman         | 19000 | cleark    | m      | 1000 |   15 | 2024-01-12 |
+|     3 | satyam       | 19000 | peon      | m      | 1000 |   10 | 2024-01-12 |
+|     2 | sachin       | 18000 | peon      | m      | 1000 |   10 | 2024-01-12 |
+|     1 | manish       | 12000 | peon      | m      | 1000 |   10 | 2024-01-12 |
++-------+--------------+-------+-----------+--------+------+------+------------+
+7 rows in set (0.00 sec)
+
+mysql> select * from empoliy1 order by empno gender;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'gender' at line 1
+mysql> select * from empoliy1 order by gender;
++-------+--------------+-------+-----------+--------+------+------+------------+
+| empno | name         | sal   | job       | gender | comm | dept | hiredate   |
++-------+--------------+-------+-----------+--------+------+------+------------+
+|     5 | manishi      | 12000 | gatepaser | f      | 1000 |   10 | 2024-01-12 |
+|     6 | neha         | 18000 | trainer   | f      | 1000 |   10 | 2024-01-12 |
+|     1 | manish       | 12000 | peon      | m      | 1000 |   10 | 2024-01-12 |
+|     2 | sachin       | 18000 | peon      | m      | 1000 |   10 | 2024-01-12 |
+|     3 | satyam       | 19000 | peon      | m      | 1000 |   10 | 2024-01-12 |
+|     4 | aman         | 19000 | cleark    | m      | 1000 |   15 | 2024-01-12 |
+|     7 | manish kumar | 15500 | manager   | m      | 1000 |   20 | 2024-03-12 |
++-------+--------------+-------+-----------+--------+------+------+------------+
+7 rows in set (0.00 sec)
+
+mysql>
