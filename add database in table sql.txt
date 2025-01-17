@@ -1,4 +1,4 @@
-write a sql query to create emp table in mysql?
+//write a sql query to create emp table in mysql?
 	
 
 create table empoliy1(
@@ -9,7 +9,7 @@ job varchar(45),
 gender char(2),
 comm int,
 dept int
-);==================================================================
+ );==================================================================
 mysql> use jan13;
 Database changed
 mysql> insert into empoliy1 values(01,'manish',12000,'peon','m',1000,10,'2024-01-12');
