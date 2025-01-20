@@ -86,3 +86,15 @@ mysql> desc student;
 4 rows in set (0.00 sec)
 
 mysql>
+
+
+
+
+
+
+create table dept(
+sid int primary key,
+name varchar(45),
+enroll varchar(45),
+per float
+);
