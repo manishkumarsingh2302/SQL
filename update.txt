@@ -1,0 +1,126 @@
+Enter password: **********
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 10
+Server version: 8.0.40 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2024, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use jan13;
+Database changed
+mysql> desc student;
++--------+-------------+------+-----+---------+-------+
+| Field  | Type        | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| sid    | int         | NO   | PRI | NULL    |       |
+| name   | varchar(45) | YES  |     | NULL    |       |
+| enroll | varchar(45) | YES  |     | NULL    |       |
+| per    | float       | YES  |     | NULL    |       |
+| p      | int         | YES  |     | NULL    |       |
+| m      | int         | YES  |     | NULL    |       |
+| h      | int         | YES  |     | NULL    |       |
+| total  | int         | YES  |     | NULL    |       |
++--------+-------------+------+-----+---------+-------+
+8 rows in set (0.09 sec)
+
+mysql> select *from empoliy1;
++-------+--------------+-------+-----------+--------+------+------+------------+
+| empno | name         | sal   | job       | gender | comm | dept | hiredate   |
++-------+--------------+-------+-----------+--------+------+------+------------+
+|     1 | manish       | 12000 | peon      | m      | 1000 |   10 | 2024-01-12 |
+|     2 | sachin       | 18000 | peon      | m      | 1000 |   10 | 2024-01-12 |
+|     3 | satyam       | 19000 | peon      | m      | 1000 |   10 | 2024-01-12 |
+|     4 | aman         | 19000 | cleark    | m      | 1000 |   15 | 2024-01-12 |
+|     5 | manishi      | 12000 | gatepaser | f      | 1000 |   10 | 2024-01-12 |
+|     6 | neha         | 18000 | trainer   | f      | 1000 |   10 | 2024-01-12 |
+|     7 | manish kumar | 15500 | manager   | m      | 1000 |   20 | 2024-03-12 |
++-------+--------------+-------+-----------+--------+------+------+------------+
+7 rows in set (0.00 sec)
+
+mysql> select max(dept)from empoliy1;
++-----------+
+| max(dept) |
++-----------+
+|        20 |
++-----------+
+1 row in set (0.00 sec)
+
+mysql> select min(sal)from empoliy1;
++----------+
+| min(sal) |
++----------+
+|    12000 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> select avg(sal)form empoliy1;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'empoliy1' at line 1
+mysql> select AVG(sal)FROM empoliy1;
++--------------------+
+| AVG(sal)           |
++--------------------+
+| 16214.285714285714 |
++--------------------+
+1 row in set (0.00 sec)
+
+mysql> select AVG(sal)from empoliy1;
++--------------------+
+| AVG(sal)           |
++--------------------+
+| 16214.285714285714 |
++--------------------+
+1 row in set (0.00 sec)
+
+mysql> select avg(sal)from empoliy1;
++--------------------+
+| avg(sal)           |
++--------------------+
+| 16214.285714285714 |
++--------------------+
+1 row in set (0.00 sec)
+
+mysql> update empoliy1 set sal="12000" where sal="500";
+Query OK, 0 rows affected (0.01 sec)
+Rows matched: 0  Changed: 0  Warnings: 0
+
+mysql> select *from empoliy1;
++-------+--------------+-------+-----------+--------+------+------+------------+
+| empno | name         | sal   | job       | gender | comm | dept | hiredate   |
++-------+--------------+-------+-----------+--------+------+------+------------+
+|     1 | manish       | 12000 | peon      | m      | 1000 |   10 | 2024-01-12 |
+|     2 | sachin       | 18000 | peon      | m      | 1000 |   10 | 2024-01-12 |
+|     3 | satyam       | 19000 | peon      | m      | 1000 |   10 | 2024-01-12 |
+|     4 | aman         | 19000 | cleark    | m      | 1000 |   15 | 2024-01-12 |
+|     5 | manishi      | 12000 | gatepaser | f      | 1000 |   10 | 2024-01-12 |
+|     6 | neha         | 18000 | trainer   | f      | 1000 |   10 | 2024-01-12 |
+|     7 | manish kumar | 15500 | manager   | m      | 1000 |   20 | 2024-03-12 |
++-------+--------------+-------+-----------+--------+------+------+------------+
+7 rows in set (0.00 sec)
+
+mysql> update empoliy1 set sal="500" where sal="12000";
+Query OK, 2 rows affected (0.03 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+mysql> select *from empoliy1;
++-------+--------------+-------+-----------+--------+------+------+------------+
+| empno | name         | sal   | job       | gender | comm | dept | hiredate   |
++-------+--------------+-------+-----------+--------+------+------+------------+
+|     1 | manish       |   500 | peon      | m      | 1000 |   10 | 2024-01-12 |
+|     2 | sachin       | 18000 | peon      | m      | 1000 |   10 | 2024-01-12 |
+|     3 | satyam       | 19000 | peon      | m      | 1000 |   10 | 2024-01-12 |
+|     4 | aman         | 19000 | cleark    | m      | 1000 |   15 | 2024-01-12 |
+|     5 | manishi      |   500 | gatepaser | f      | 1000 |   10 | 2024-01-12 |
+|     6 | neha         | 18000 | trainer   | f      | 1000 |   10 | 2024-01-12 |
+|     7 | manish kumar | 15500 | manager   | m      | 1000 |   20 | 2024-03-12 |
++-------+--------------+-------+-----------+--------+------+------+------------+
+7 rows in set (0.00 sec)
+
+mysql>
+
+
+
